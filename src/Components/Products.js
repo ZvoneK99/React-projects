@@ -9,8 +9,8 @@ function Products(props) {
         "Samsung S23":1100
     });
 
-    let [newProductName, setNewProductName] = useState();
-    let [newProductPrice, setNewProductPrice] = useState();
+    let [newProductName, setNewProductName] = useState("");
+    let [newProductPrice, setNewProductPrice] = useState("");
     /**
      * 1.Input za unos imena proizvoda - newProductName, setNewProductName
      * 2.Input za unos cijene - newProductPrice, setNewProductPrice
@@ -22,14 +22,20 @@ function Products(props) {
     */
 
     function addProduct() {
-       
-       setProducts(previousProducts => ({
-        ...previousProducts,
-        [newProductName]: (newProductPrice)  
-       }));
+      if(newProductName === "") {
+        return;
+    }
+      if(newProductPrice === "") {
+        return;
+    }
+    console.log("Sve je u redu!"); 
+    let newProduct = {[newProductName]: parseInt(newProductPrice)};
 
-       setNewProductName("");
-       setNewProductPrice("");
+    setProducts( currentProducts  => ({
+        ...currentProducts, //spoji trenutne proizvode
+        ...newProduct   //spoji novi proizvod
+    }) )
+    
     }
 
     return (
@@ -50,7 +56,8 @@ function Products(props) {
 };
 
 function calculateTax(price, tax) {
-    return price * (1+tax/100);
+    let rez = price * (1+tax/100);
+    return parseFloat(rez);
 } 
 
 export default Products;
