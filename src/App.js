@@ -27,16 +27,14 @@ function App() {
    
     <hr/>
     <Products tax={tax}/>
-    <hr/>
-    <Products tax="25"/>
-    <hr/>
-    <Products tax="55"/>
-    <hr/>
-    <button onClick={clickOnButton}>{name}</button>
+    
+    {/*<button onClick={clickOnButton}>{name}</button>
     <h1>my name is {name}</h1>
     <input type='text' placeholder='Unesite novo ime.' onInput={ (e) => {setName(e.target.value)}}/>
     <br/><hr/>
-    <input type='text'placeholder='Unesite novu vrijednos poreza.' onInput={ (e) => { setTax(e.target.value)}}/>
+    <input type='text'placeholder='Unesite novu vrijednos poreza.' onInput={ (e) => { setTax(e.target.value)}}/> */}
+    
+    
         </>
     
   );
